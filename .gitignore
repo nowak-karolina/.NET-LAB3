@@ -1,0 +1,34 @@
+# Ignoruj pliki tymczasowe, takie jak pliki katalogu bin i obj
+bin/
+obj/
+
+# Ignoruj pliki zawierające ustawienia użytkownika
+*.user
+
+# Ignoruj pliki katalogu pakietów NuGet
+packages/
+
+# Ignoruj pliki katalogu nuget
+*.nupkg
+
+# Ignoruj pliki, które mogą być generowane podczas uruchamiania kodu, takie jak pliki .exe i .dll
+*.exe
+*.dll
+*.pdb
+
+# Ignoruj pliki katalogu testResults
+TestResults/
+
+# Ignoruj pliki Visual Studio Code
+.vscode/
+
+# Ignoruj pliki katalogu bower_components
+bower_components/
+
+# Ignoruj pliki katalogu jest wraz z plikiem npm-debug.log
+jest/
+
+# Ignoruj pliki npm debug log
+npm-debug.log
+
+.vs/
