@@ -137,6 +137,10 @@ namespace App {
         }
 
         private void processButton_Click(object sender, EventArgs e) {
+            if (pictureBox1.Image == null) {
+                MessageBox.Show("Error: no file to process", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Parallel.For(0, 4, i => {
                 if (i == 0) Greyscale();
                 if (i == 1) Invert();
