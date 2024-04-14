@@ -6,60 +6,43 @@ using System.Threading.Tasks;
 
 namespace Lab3 {
     internal class Matrix {
-        public int[,] matrixClass { get; set; }       //[r,c]
+        public int[,] matrix { get; set; }       //[r,c]
+        public int n { get; set; }
 
         public Matrix(int n) {
-            var rand = new Random();
-            matrixClass = new int[n, n];
+            this.n = n;
+            matrix = new int[n, n];
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    matrixClass[i, j] = rand.Next(1,10);
+                    matrix[i, j] = 0;
                 }
             }
         }
 
-        public static Matrix Zeros(Matrix matrix1) {
-            for (int i = 0; i < GetSize(matrix1); i++) {
-                for (int j = 0; j < GetSize(matrix1); j++) {
-                    matrix1.matrixClass[i, j] = 0;
+        public void RandomizeMatrix() {
+            Random random = new Random();
+
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    matrix[i, j] = random.Next(1,10);
                 }
             }
-
-            return matrix1;
         }
 
-        public static int GetSize(Matrix matrix) {
-            return matrix.matrixClass.GetLength(0);
-        }
 
         public override string ToString() {
             string s = "";
 
-            for (int i = 0;i < matrixClass.GetLength(0);i++) {
+            for (int i = 0;i < this.n;i++) {
                 s += "|";
-                for (int j = 0; j< matrixClass.GetLength(1); j++) {
-                    s += matrixClass[i, j] + "\t";
+                for (int j = 0; j< this.n; j++) {
+                    s += matrix[i, j] + "\t";
                 }
                 s += "|\n";
             }
 
             return s;
-        }
-
-        public static Matrix Multiply(Matrix matrix1, Matrix matrix2) {
-            Matrix result = new Matrix(GetSize(matrix1));
-            result = Zeros(result);
-
-            for (int i = 0; i<GetSize(matrix1); i++) {
-                for(int j=0; j<GetSize(matrix1);j++) {
-                    for(int k=0; k<GetSize(matrix1);k++) {
-                        result.matrixClass[i, j] += matrix1.matrixClass[i, k] * matrix2.matrixClass[k, j];
-                    }
-                }
-            }
-
-            return result;
         }
     }
 }

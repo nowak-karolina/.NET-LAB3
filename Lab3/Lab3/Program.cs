@@ -1,14 +1,15 @@
 ﻿namespace Lab3 {
     internal class Program {
+        private const int NoThreads = 8;
+        private const int MatrixSize = 5000;
+
         static void Main(string[] args) {
-            Matrix matrix1 = new Matrix(4);
-            Matrix matrix2 = new Matrix(4);
-            Matrix result = Matrix.Multiply(matrix1, matrix2);
+            LLThreading fredy = new LLThreading(NoThreads, MatrixSize);
 
+            HLThreading fredy1 = new HLThreading(NoThreads, MatrixSize);
+            Console.WriteLine("-----------------");
+            
 
-            Console.WriteLine(matrix1.ToString());
-            Console.WriteLine(matrix2.ToString());
-            Console.WriteLine(result.ToString());
         }
     }
 }
